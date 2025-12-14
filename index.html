@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/css.css">
+  <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+  <title>音乐播放器</title>
+</head>
+
+<body>
+  <!-- 上半部分容器 -->
+  <div class="upper-container">
+    <!-- 唱片 -->
+    <div class="record-container">
+      <div class="record-bg">
+        <div id="record-img" class="rotate-play"></div>
+      </div>
+    </div>
+    <!-- 歌曲 -->
+    <div class="introduction-container">
+      <div class="text-container">
+        <div class="music-title">音乐</div>
+        <div class="author-container">
+          作者：
+          <span class="author-name">
+            彭广银
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 下半部分容器 -->
+  <div class="bottom-container">
+
+    <!-- 音频 -->
+    <audio id="audioTag"></audio>
+
+    <!-- 进度条 -->
+    <div class="progress">
+      <div class="progress-play"></div>
+    </div>
+    <!-- 控制器 -->
+    <div class="controls">
+      <div class="timer-container">
+        <span class="played-time">00:00</span>
+        &nbsp;&nbsp;
+        <span class="audio-time">00:00</span>
+      </div>
+      <div class="center-container">
+        <!-- 播放模式 -->
+        <div class="playMode center-icon"></div>
+        <!-- 上一首 -->
+        <div class="beforeMusic center-icon"></div>
+        <!-- 播放暂停 -->
+        <div class="playPause center-icon icon-play"></div>
+        <!-- 下一首 -->
+        <div class="nextMusic center-icon"></div>
+        <!-- 音量 -->
+        <div class="volume center-icon"></div>
+        <!-- 音量进度条 -->
+        <input type="range" id="volumn-togger" value="70" min="0" max="100" step="1" />
+      </div>
+      <div class="right-container">
+        <!-- MV -->
+        <div id="MV" class="bottom-icon"></div>
+        <!-- 倍速 -->
+        <div id="speed">1.0</div>
+        <!-- 列表 -->
+        <div id="list" class="bottom-icon"></div>
+      </div>
+    </div>
+  </div>
+  <div class="close-container"></div>
+  <div class="list-container">
+    <div class="list-title">播放列表</div>
+    <hr>
+    <div class="music-list">
+
+    </div>
+  </div>
+  </div>
+</body>
+
+<style>
+  html {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    background-image: url(../static/img/record0.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+  }
+</style>
+
+</html>
+<script src="./js/audio.js">
+
+</script>
