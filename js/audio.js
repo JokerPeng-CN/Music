@@ -32,9 +32,9 @@ var musicList = document.getElementsByClassName('music-list')[0];
 // 歌曲列表名称
 var musicData = [
   ['其实', '薛之谦'],
-  ['晴天', '周杰伦'],
+  ['等你下课', '周杰伦'],
   ['天外来物', '薛之谦'],
-  ['七里香', '周杰伦'],
+  ['枫', '周杰伦'],
 ];
 // 获取body
 var body = document.body;
@@ -125,9 +125,9 @@ function formatTime(value) {
   var seconds = parseInt(value % 60);
 
   if (hour > 0) {
-    return `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart('2', 0)}:${seconds.toString().padStart('2', 0)}`
+    return `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   } else {
-    return `${minutes.toString().padStart('2', 0)}:${seconds.toString().padStart('2', 0)}`
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
 }
 
