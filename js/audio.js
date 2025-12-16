@@ -34,6 +34,7 @@ var mvContainer = document.getElementById('mvContainer');
 var mvVideo = document.getElementById('mvVideo');
 var closeMvBtn = document.getElementById('closeMv');
 var mvButton = document.getElementById('MV');
+var audioPlayingBeforeMV = false;
 
 // 歌曲列表名称
 var musicData = [
@@ -261,10 +262,13 @@ function createMusicList() {
 function openMV() {
   // 暂停音频播放
   if (!audio.paused) {
+    audioPlayingBeforeMV = true;
     audio.pause();
     playPause.classList.remove('icon-pause');
     playPause.classList.add('icon-play');
     rotateRecordStop();
+  } else {
+    audioPlayingBeforeMV = false;
   }
 
   // 设置并播放对应MV
@@ -285,9 +289,11 @@ function closeMV() {
   mvContainer.style.display = 'none';
 
   // 如果之前在播放音乐，则恢复播放
-  if (playPause.classList.contains('icon-pause')) {
+  if (audioPlayingBeforeMV) {
     audio.play();
     rotateRecord();
+    playPause.classList.remove('icon-play');
+    playPause.classList.add('icon-pause');
   }
 }
 

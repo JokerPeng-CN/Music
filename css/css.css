@@ -238,33 +238,7 @@
   border-radius: 5px;
 }
 
-.list-show {
-  animation: showList 0.5s ease-in-out forwards;
-}
 
-.list-hide {
-  animation: hideList 0.5s ease-in-out forwards;
-}
-
-@keyframes showList {
-  from {
-    transform: translateY(100%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes hideList {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(100%);
-  }
-}
 
 .list-container {
   width: 25%;
