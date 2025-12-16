@@ -29,11 +29,17 @@ var listContainer = document.getElementsByClassName('list-container')[0];
 var list = document.getElementById('list');
 var musicList = document.getElementsByClassName('music-list')[0];
 
+// 添加MV相关变量
+var mvContainer = document.getElementById('mvContainer');
+var mvVideo = document.getElementById('mvVideo');
+var closeMvBtn = document.getElementById('closeMv');
+var mvButton = document.getElementById('MV');
+
 // 歌曲列表名称
 var musicData = [
-  ['其实', '薛之谦'],
+  ['明天过后', '张杰'],
   ['等你下课', '周杰伦'],
-  ['天外来物', '薛之谦'],
+  ['他不懂', '张杰'],
   ['枫', '周杰伦'],
 ];
 // 获取body
@@ -250,4 +256,50 @@ function createMusicList() {
     });
   }
 }
+
+// 添加MV功能
+function openMV() {
+  // 暂停音频播放
+  if (!audio.paused) {
+    audio.pause();
+    playPause.classList.remove('icon-pause');
+    playPause.classList.add('icon-play');
+    rotateRecordStop();
+  }
+
+  // 设置并播放对应MV
+  mvVideo.src = `./mp4/video${musicId}.mp4`;
+  mvVideo.load();
+  mvVideo.play();
+
+  // 显示MV容器
+  mvContainer.style.display = 'flex';
+}
+
+function closeMV() {
+  // 暂停MV播放
+  mvVideo.pause();
+  mvVideo.currentTime = 0;
+
+  // 隐藏MV容器
+  mvContainer.style.display = 'none';
+
+  // 如果之前在播放音乐，则恢复播放
+  if (playPause.classList.contains('icon-pause')) {
+    audio.play();
+    rotateRecord();
+  }
+}
+
+// 绑定MV按钮事件
+mvButton.addEventListener('click', openMV);
+closeMvBtn.addEventListener('click', closeMV);
+
+// 点击MV容器背景也关闭MV（可选）
+mvContainer.addEventListener('click', function (e) {
+  if (e.target === mvContainer) {
+    closeMV();
+  }
+});
+
 document.addEventListener('DOMContentLoaded', createMusicList);
